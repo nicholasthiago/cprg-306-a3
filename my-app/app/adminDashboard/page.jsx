@@ -1,7 +1,7 @@
 
 import AdminView from '@/components/AdminView';
 
-export default function Dashboard() {
+export default function adminDashboard() {
   return (
     <>
       <AdminView />

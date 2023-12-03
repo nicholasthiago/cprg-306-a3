@@ -30,7 +30,12 @@ if (res.error){
     return;
 }
 
-router.replace("userDashboard");
+if (email === "mike7@yahoo.com") {
+    router.replace("adminDashboard");
+  } else {
+    router.replace("userDashboard");
+  }
+
 
 }catch(error){
 console.log(error);

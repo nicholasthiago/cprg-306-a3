@@ -1,10 +1,10 @@
 'use client';
 import { signOut } from 'next-auth/react';
-
-
 import Link from 'next/link';
 
-export default function NavBar() {
+
+
+export default function NavBar_2() {
     return (
 <nav className="bg-black text-white flex flex-col w-full  fixed-top-0  text-xl font-bold ">
     <ul>
