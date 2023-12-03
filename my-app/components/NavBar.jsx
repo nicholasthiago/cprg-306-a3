@@ -30,7 +30,7 @@ export default function Navbar() {
 					{ render_AddMovie() }
 
 					<div className='mr-auto py-2 pr-8'>
-						<Link onClick={() => signOut()} href="/"> {'Logout'} </Link>
+						<Link href="/"> {'Logout'} </Link>
 					</div>
 
 				</div>
