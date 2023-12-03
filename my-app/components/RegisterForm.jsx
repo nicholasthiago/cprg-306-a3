@@ -58,6 +58,7 @@ export default function RegisterForm() {
 				const form = e.target;
 				form.reset();
 				router.push('/');
+
 			} else {
 				console.log("Register Failed");
 			}

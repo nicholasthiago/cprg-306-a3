@@ -26,9 +26,34 @@ const userSchema = new Schema({
 	{ timestamps: true }
 );
 
-const User = models.User || mongoose.model("User", userSchema);
+export const User = models.User || mongoose.model("User", userSchema);
 
-export default User;
+const movieSchema = new Schema({
+
+	title: {
+		type: String,
+		required: true,
+	},
+
+	year: {
+		type: Number,
+		required: true,
+	},
+
+	imdb: {
+		type: Number,
+		required: true,
+	},
+
+	description: {
+		type: String,
+		required: true,
+	}
+},
+	{ timestamps: true }
+);
+
+export const Movie = models.Movie || mongoose.model("Movie", movieSchema);
 
 
 

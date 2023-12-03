@@ -27,25 +27,25 @@ export default function LoginForm() {
 				redirect: false,
 			});
 
+			console.log('next/auth - response : ', res);
+
 			if (res.error) {
 				setError("Invalid Credentials");
 				return;
 			}
 
-			if (email === "mike7@yahoo.com") {
+			if (email === "admin@cprg306.com") {
 
 				console.log("Checkpoint-02 : redirect to Admin Dashboard");
-				router.push("/adminDashboard");
+				router.replace("adminDashboard");
 
 			} else {
 				console.log("Checkpoint-03 : redirect to User Dashboard");
-				router.push("/userDashboard");
+				router.replace("userDashboard");
 			}
 
 
-		} catch (error) {
-			console.log(error);
-		}
+		} catch (error) { console.log(error) }
 	};
 
 
@@ -65,11 +65,11 @@ export default function LoginForm() {
 					Our mission is to provide an enjoyable and seamless movie rental experience for all our users.
 				</p>
 				<div>
-					<h2>Contact Us</h2>
+					<h2> {'Contact Us'} </h2>
 					<p>
-						Email: info@imrcompany.com
+						{'Email: info@imrcompany.com'}
 						<br />
-						Phone: (123) 456-7890
+						{'Phone: (123) 456-7890'}
 					</p>
 				</div>
 			</footer>
@@ -87,10 +87,8 @@ export default function LoginForm() {
 							<div className="bg-red-600 text-white w-fit text-sm py-1 px-3 rounded-md mt-2">{error}</div>
 						)}
 
-
-
 						<Link className="text-lg mt-3 text-right" href={"/register"}>
-							Don't have an account?
+							{"Don't have an account ? "}
 							<span className="underline">Register</span>
 
 						</Link>

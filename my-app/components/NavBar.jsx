@@ -1,24 +1,36 @@
 'use client';
 import { signOut } from 'next-auth/react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation'
 
-export default function NavBar() {
+
+export default function Navbar() {
+
+	console.log( usePathname() )
+
+	function render_AddMovie() {
+		if ( usePathname() === '/adminDashboard' ) {
+			return (
+				<div className='mr-auto bg-red-500 py-2 px-6 rounded-lg'>
+					<Link className=" items text-white" href={"/addMovie"}>Add Movie</Link>
+				</div>
+			)
+		}
+	}
+
 	return (
-
 		<nav className="bg-black text-white flex flex-col w-full  fixed-top-0  text-xl font-bold ">
 			<ul>
-				<div class="flex p-3 space-x-8  ">
+				<div class={'flex p-3 space-x-8 font-medium text-md'}>
 
-					<div className='text-xl font-normal'>
-						<li>Welcome </li>
+					<div className='text-xl font-normal mr-auto py-2 px-6'>
+						<li> {'Welcome'} </li>
 					</div>
 
-					<div className='text-red-00'>
-						<Link onClick={() => signOut()} href="/">Logout</Link>
-					</div>
+					{ render_AddMovie() }
 
-					<div className='mr-auto '>
-						<Link className="bg-red-500 items text-white text-lg p-1 rounded-lg" href={"/addMovie"}>Add Movie</Link>
+					<div className='mr-auto py-2 pr-8'>
+						<Link onClick={() => signOut()} href="/"> {'Logout'} </Link>
 					</div>
 
 				</div>
