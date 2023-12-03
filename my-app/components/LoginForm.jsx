@@ -10,8 +10,8 @@ import adminDashboard from "@/pages/adminDashboard";
 export default function LoginForm() {
 
 	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
 	const [error, setError] = useState('');
+	const [password, setPassword] = useState('');
 
 	const router = useRouter();
 
@@ -19,6 +19,8 @@ export default function LoginForm() {
 		e.preventDefault();
 
 		try {
+			console.log("Checkpoint-01");
+
 			const res = await signIn('credentials', {
 				email,
 				password,
@@ -31,18 +33,19 @@ export default function LoginForm() {
 			}
 
 			if (email === "mike7@yahoo.com") {
-				router.replace("adminDashboard");
+
+				console.log("Checkpoint-02 : redirect to Admin Dashboard");
+				router.push("/adminDashboard");
+
 			} else {
-				router.replace("userDashboard");
+				console.log("Checkpoint-03 : redirect to User Dashboard");
+				router.push("/userDashboard");
 			}
 
 
 		} catch (error) {
 			console.log(error);
 		}
-
-
-
 	};
 
 

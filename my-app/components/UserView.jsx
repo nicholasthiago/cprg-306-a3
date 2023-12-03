@@ -6,8 +6,7 @@ import Footer from '@/components/Footer';
 export default function UserView() {
 	return (
 		<>
-			<NavBar_2 />
-			<Footer />
+			<h1> {'USER DASHBOARD'} </h1>
 		</>
 	);
 }

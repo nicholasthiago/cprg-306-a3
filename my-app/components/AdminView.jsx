@@ -4,8 +4,7 @@ import Footer from '@/components/Footer';
 export default function AdminView() {
 	return (
 		<>
-			<NavBar />
-			<Footer />
+			<h1> {'ADMIN DASHBOARD'} </h1>
 		</>
 	);
 }
