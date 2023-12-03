@@ -1,6 +1,6 @@
 import 'app/globals.css'
 import Footer from '@/components/Footer'
-import Navbar from '@/components/Navbar'
+import Navbar from '@/components/Navbar';
 
 const MyApp = (props) => {
 	const { Component, pageProps, children } = props;
