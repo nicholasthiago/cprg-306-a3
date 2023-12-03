@@ -1,57 +1,54 @@
 
-import {connectMongoDB}  from "@/lib/mongodb";
+import { connectMongoDB } from "@/lib/mongodb";
 import User from "@/models/user";
 import NextAuth from "next-auth/next";
-import  CredentialsProvider  from "next-auth/providers/credentials";
+import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 
 
 
-const authOptions = { 
-providers: [
-CredentialsProvider({
-name: "Credentials",
-credentials: {},
+const authOptions = {
+	providers: [
+		CredentialsProvider({
+			name: "Credentials",
+			credentials: {},
 
-async authorize (credentials) {
- const {email, password} = credentials;
- 
-try {
-    await connectMongoDB();
-   const user = await User.findOne({email});
-if(!user){
-    return null;
-}
-const passwordsMatch = await bcrypt.compare(password, user.password);
+			async authorize(credentials) {
+				const { email, password } = credentials;
 
-if(!passwordsMatch){
-    return null;
+				try {
+					await connectMongoDB();
+					const user = await User.findOne({ email });
+					if (!user) {
+						return null;
+					}
 
-}
+					const passwordsMatch = await bcrypt.compare(password, user.password);
 
-return user;
+					if (!passwordsMatch) {
+						return null;
+					}
+
+					return user;
 
 
-}catch(error){
-    console.log("Error: ", error);
-}
+				} catch (error) {
+					console.log("Error: ", error);
+				}
+			},
+		}),
+	],
 
-},
-
-}),
-],
-
-session:{
-    strategy: "jwt",
-},
-secret: process.env.NEXTAUTH_SECRET,
-pages:{
-signIn:"/",
-
-},
+	session: {
+		strategy: "jwt",
+	},
+	secret: process.env.NEXTAUTH_SECRET,
+	pages: {
+		signIn: "/",
+	},
 
 
 };
 const handler = NextAuth(authOptions);
 
-export {handler as GET, handler as POST};
+export { handler as GET, handler as POST };

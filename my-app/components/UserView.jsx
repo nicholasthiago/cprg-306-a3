@@ -4,13 +4,10 @@ import Footer from '@/components/Footer';
 
 
 export default function UserView() {
-return( 
-    <>
-    <NavBar_2 />
-    <Footer />
-    </>
-
-);
-
+	return (
+		<>
+			<NavBar_2 />
+			<Footer />
+		</>
+	);
 }
-  

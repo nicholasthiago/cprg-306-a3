@@ -4,21 +4,14 @@ import Footer from '@/components/Footer';
 import LoginForm from '@/components/LoginForm';
 
 export default function Home() {
-  
-  return (
- <> 
-  {/* <NavBar />
-  <Footer /> */}
-  <LoginForm />
-
-
-  </>
-
-
-
-
-
-
-
-  );
+	return (
+		<>
+			{/*
+			<NavBar />
+			<Footer />
+			*/}
+			
+			<LoginForm />
+		</>
+	);
 }
