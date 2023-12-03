@@ -2,8 +2,6 @@ import movieData from "@/models/sample-data"
 import ItemList from "./item-list/item-list";
 import { useState } from "react";
 
-const inputStyle = 'px-3 py-2 my-2';
-
 
 export default function UserView() {
 

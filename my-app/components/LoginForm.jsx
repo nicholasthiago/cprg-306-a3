@@ -3,8 +3,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import userDashboard from "@/pages/userDashboard";
-import adminDashboard from "@/pages/adminDashboard";
 
 
 export default function LoginForm() {
